@@ -1,9 +1,17 @@
 def stock_picker(array)
+  hash = {}
   array.each_with_index do |price, index|
-    highest = array[index + 1..-1].max #find the highest value after the index
-    puts highest
+
+    sub_array = array[index + 1..-1]
+    highest = sub_array.max  #find the highest value after the index
+    
+    if highest
+      highest_index = array.index(highest) #get the index of highest value
+      hash[[index, highest_index]] =  highest - price
+    end
   end
-  
+  best_days = hash.max_by{|k,v| v}
+  print best_days
 end
 stock_picker([17,3,6,9,15,8,6,1,10])
 

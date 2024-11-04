@@ -1,9 +1,9 @@
 def stock_picker(array)
-  array.each do 
-    highest = array.max
-    print highest
-  
+  array.each_with_index do |price, index|
+    highest = array[index + 1..-1].max #find the highest value after the index
+    puts highest
   end
+  
 end
 stock_picker([17,3,6,9,15,8,6,1,10])
 

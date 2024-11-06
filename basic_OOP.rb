@@ -1,4 +1,6 @@
 class MyCar 
+  attr_accessor :year, :color, :model
+
   def initialize (year, color, model)
     @year = year
     @color = color
@@ -20,8 +22,20 @@ class MyCar
     @speed = 0
     "car has shut down"
   end
+
+  def change_info (y, c, m)
+    self.year = year
+    self.color = color
+    self.model = model
+  end
+
+  def info
+    "the year is #{year}, the color is #{color}, the model is #{model}"
+  end
 end
 
 donda = MyCar.new("2001", "black", "new")
 puts donda.shut_off
 puts donda.speed_up(3)
+donda.change_info('2020', 'red', 'old')
+puts donda.info   

@@ -24,18 +24,27 @@ class MyCar
   end
 
   def change_info (y, c, m)
-    self.year = year
-    self.color = color
-    self.model = model
+    self.year = y
+    self.color = c
+    self.model = m
   end
 
   def info
     "the year is #{year}, the color is #{color}, the model is #{model}"
   end
+
+  def spray_paint(color)
+    self.color = color
+    "color changed to #{color}"
+  end
 end
+
+
 
 donda = MyCar.new("2001", "black", "new")
 puts donda.shut_off
 puts donda.speed_up(3)
 donda.change_info('2020', 'red', 'old')
+puts donda.info   
+donda.spray_paint('blue')
 puts donda.info   

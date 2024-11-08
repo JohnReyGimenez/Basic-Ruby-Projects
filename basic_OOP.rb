@@ -37,6 +37,10 @@ class MyCar
     self.color = color
     "color changed to #{color}"
   end
+
+  def self.gas_mileage (gallon, miles)
+    puts "#{miles / gallon} miles per gallon of gas"
+  end
 end
 
 
@@ -48,3 +52,4 @@ donda.change_info('2020', 'red', 'old')
 puts donda.info   
 donda.spray_paint('blue')
 puts donda.info   
+MyCar.gas_mileage(13, 351) 

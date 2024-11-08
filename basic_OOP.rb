@@ -41,6 +41,10 @@ class MyCar
   def self.gas_mileage (gallon, miles)
     puts "#{miles / gallon} miles per gallon of gas"
   end
+
+  def to_s 
+    "My car is a #{color}, #{year}, #{@model}!"
+  end
 end
 
 
@@ -53,3 +57,5 @@ puts donda.info
 donda.spray_paint('blue')
 puts donda.info   
 MyCar.gas_mileage(13, 351) 
+my_car = MyCar.new("2010", "Ford Focus", "silver")
+puts my_car

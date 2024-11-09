@@ -80,3 +80,5 @@ end
 # Test code
 
 puts Vehicle.total_vehicles  
+puts "---MyCAR method lookup---"
+puts MyCar.ancestors

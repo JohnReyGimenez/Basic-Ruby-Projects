@@ -23,6 +23,7 @@ end
 
   class MyTruck < Vehicle
     TYPE = "truck"
+    include Weight
   end
 
 class MyCar < Vehicle

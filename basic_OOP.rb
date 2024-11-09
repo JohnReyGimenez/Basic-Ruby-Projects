@@ -1,5 +1,24 @@
-class MyCar 
+class Vehicle
+  TYPE = "vehicle"
+  @@vehicle_count = 0
+
+  def initialize 
+  @@vehicle_count += 1
+  end
+  
+  def self.total_vehicles
+    "total number is #{@@vehicle_count}"
+  end
+end
+
+class MyTruck < Vehicle
+   TYPE = "truck"
+end
+
+class MyCar < Vehicle
   attr_accessor :year, :color, :model
+
+  TYPE = "car"
 
   def initialize (year, color, model)
     @year = year
@@ -47,15 +66,9 @@ class MyCar
   end
 end
 
+# Test code
+car1 = MyCar.new(2010, 'red', 'Toyota')
+truck1 = MyTruck.new
+truck2 = MyTruck.new
 
-
-donda = MyCar.new("2001", "black", "new")
-puts donda.shut_off
-puts donda.speed_up(3)
-donda.change_info('2020', 'red', 'old')
-puts donda.info   
-donda.spray_paint('blue')
-puts donda.info   
-MyCar.gas_mileage(13, 351) 
-my_car = MyCar.new("2010", "Ford Focus", "silver")
-puts my_car
+puts Vehicle.total_vehicles  

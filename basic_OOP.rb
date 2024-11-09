@@ -8,6 +8,7 @@ module Weight
 end
 
 class Vehicle
+  attr_accessor :year, :color, :model
   TYPE = "vehicle"
   @@vehicle_count = 0
 
@@ -18,18 +19,6 @@ class Vehicle
   def self.total_vehicles
     "total number is #{@@vehicle_count}"
   end
-end
-
-
-  class MyTruck < Vehicle
-    TYPE = "truck"
-    include Weight
-  end
-
-class MyCar < Vehicle
-  attr_accessor :year, :color, :model
-
-  TYPE = "car"
 
   def initialize (year, color, model)
     @year = year
@@ -72,6 +61,30 @@ class MyCar < Vehicle
     puts "#{miles / gallon} miles per gallon of gas"
   end
 
+end
+
+
+  class MyTruck < Vehicle
+    TYPE = "truck"
+    include Weight
+
+    def to_s 
+      "My truck is a #{color}, #{year}, #{@model}!"
+    end
+  end
+
+class MyCar < Vehicle
+  attr_accessor :year, :color, :model
+
+  TYPE = "car"
+
+  def initialize (year, color, model)
+    @year = year
+    @color = color
+    @model = model
+    @speed = 0
+  end
+
   def to_s 
     "My car is a #{color}, #{year}, #{@model}!"
   end
@@ -79,6 +92,16 @@ end
 
 # Test code
 
+donda = MyCar.new("2001", "black", "new")
+puts donda.shut_off
+puts donda.speed_up(3)
+donda.change_info('2020', 'red', 'old')
+puts donda.info   
+donda.spray_paint('blue')
+puts donda.info   
+MyCar.gas_mileage(13, 351) 
+my_car = MyCar.new("2010", "Ford Focus", "silver")
+puts my_car
 puts Vehicle.total_vehicles  
 puts "---MyCAR method lookup---"
 puts MyCar.ancestors

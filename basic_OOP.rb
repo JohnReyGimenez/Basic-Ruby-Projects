@@ -61,6 +61,15 @@ class Vehicle
     puts "#{miles / gallon} miles per gallon of gas"
   end
 
+  def age
+    "Your #{self.model} is #{years_old} years old."
+  end
+
+  private
+
+  def years_old
+    Time.now.year - self.year
+  end
 end
 
 

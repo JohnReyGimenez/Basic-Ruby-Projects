@@ -1,3 +1,12 @@
+module Weight
+  def weight(n) 
+    if n >= 	3997 
+      "its a truck"
+    end
+    "its a car"
+  end
+end
+
 class Vehicle
   TYPE = "vehicle"
   @@vehicle_count = 0
@@ -11,9 +20,10 @@ class Vehicle
   end
 end
 
-class MyTruck < Vehicle
-   TYPE = "truck"
-end
+
+  class MyTruck < Vehicle
+    TYPE = "truck"
+  end
 
 class MyCar < Vehicle
   attr_accessor :year, :color, :model
@@ -67,8 +77,5 @@ class MyCar < Vehicle
 end
 
 # Test code
-car1 = MyCar.new(2010, 'red', 'Toyota')
-truck1 = MyTruck.new
-truck2 = MyTruck.new
 
 puts Vehicle.total_vehicles  

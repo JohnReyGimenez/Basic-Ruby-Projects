@@ -13,6 +13,17 @@ def fibs(n)
   arr 
 end
 
+def fibs_rec(n)
+  return [0] if n == 0
+  return [0, 1] if n == 1
+
+  if n > 2
+    fibs_rec(n - 1) + fibs_rec(n - 2)
+  end
+end
+
+
+
 fibs(8)
 
 # last index is n + 1

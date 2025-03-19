@@ -1,26 +1,16 @@
 def fibs(n)
-  arr = [0, 1]
-  if n < 2
-    return arr
-  else
-    last_index = n + 1
-    arr.each do |i|
-      first_index = 0
-      second_index = 1
+  return [0] if n == 0
+  return [0, 1] if n == 1
 
-      next_value = arr[first_index] + arr[second_index]
-      arr.push(next_value)
-      
-      until n + 1
-        first_index + 1
-        second_index + 1
-        next_value = arr[first_index] + arr[second_index]
-        arr.push(next_value)
-        return arr
-      end
-    end
-    p arr
+  arr = [0, 1]
+     
+  until arr.length == n + 1
+  next_value = arr[-1] + arr[-2] # accesses the last 2 indices and adds its values
+  arr.push(next_value)   
   end
+  
+  p arr 
+  arr 
 end
 
 fibs(8)

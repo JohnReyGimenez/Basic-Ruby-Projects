@@ -5,27 +5,24 @@ def fibs(n)
   arr = [0, 1]
      
   until arr.length == n + 1
-  next_value = arr[-1] + arr[-2] # accesses the last 2 indices and adds its values
-  arr.push(next_value)   
+    next_value = arr[-1] + arr[-2] # accesses the last 2 indices and adds its values
+    arr.push(next_value)   
   end
   
   p arr 
   arr 
 end
 
-def fibs_rec(n)
+def fibs_rec(n, arr = nil)
+  arr ||= [0, 1]  # Initialize array only on the first call
+
   puts 'This was printed recursively'
-  return [0] if n == 0
-  return [0, 1] if n == 1
 
-  if n > 2
-    until n > 2
-    n - 1
-    end
+  return (p arr[0, n + 1]) if arr.length > n   # Base case: Stop when enough numbers are generated
 
-    next_value = fibs_rec(n - 1) + fibs_rec(n - 2)
-    arr.push(next_value) 
-  end
+  arr << arr[-1] + arr[-2]  # Add the next Fibonacci number
+
+  fibs_rec(n, arr)  # Recursive call with the updated array
 end
 
 fibs(8)

@@ -14,17 +14,22 @@ def fibs(n)
 end
 
 def fibs_rec(n)
+  puts 'This was printed recursively'
   return [0] if n == 0
   return [0, 1] if n == 1
 
   if n > 2
-    fibs_rec(n - 1) + fibs_rec(n - 2)
+    until n > 2
+    n - 1
+    end
+
+    next_value = fibs_rec(n - 1) + fibs_rec(n - 2)
+    arr.push(next_value) 
   end
 end
 
-
-
 fibs(8)
+fibs_rec(8)
 
 # last index is n + 1
 # make array that starts with [0, 1]

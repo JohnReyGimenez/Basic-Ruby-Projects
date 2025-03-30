@@ -7,7 +7,7 @@ module Weight
   end
 end
 
-class Vehicle
+class Vehicle   
   attr_accessor :year, :color, :model
   TYPE = "vehicle"
   @@vehicle_count = 0
@@ -114,3 +114,32 @@ puts my_car
 puts Vehicle.total_vehicles  
 puts "---MyCAR method lookup---"
 puts MyCar.ancestors
+
+
+def play_game(board)
+  current_player = "X"
+  loop do
+    board.display_board
+    puts "#{current_player}, choose a position (1-9):"
+    user_input = gets.strip
+    index = input_to_index(user_input)
+
+    if board.valid_move?(index)
+      board.update_board(index, current_player)
+
+      if won?(board)
+        board.display_board
+        puts "#{current_player} wins!"
+        break
+      elsif board.full?
+        board.display_board
+        puts "It's a draw!"
+        break
+      end
+
+      current_player = switch_player(current_player) # Switch player after a valid move
+    else
+      puts "That position is already taken or invalid. Try again."
+    end
+  end
+end

@@ -5,6 +5,7 @@ def merge_sort(array)
   mid = array.length / 2
   left_half = merge_sort(array.take(mid))   
   right_half = merge_sort(array.drop(mid))
+  p array
 
   until left_half.empty? || right_half.empty?
     if left_half.first <= right_half.first
@@ -12,7 +13,10 @@ def merge_sort(array)
     else
       sorted << right_half.shift
     end
+    sorted
   end
+
+  sorted + left_half + right_half 
 end
 
 merge_sort([3, 2, 1, 13, 8, 5, 0, 1])

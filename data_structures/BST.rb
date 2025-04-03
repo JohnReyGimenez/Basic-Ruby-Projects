@@ -15,3 +15,6 @@ class Node
     self.value = value
   end
 end
+
+bt = BinaryTree.new(Node.new(nil, nil, 1))
+puts bt.root.value
